@@ -21,4 +21,23 @@ public class BookingServiceImpl implements BookingService {
             return repo.findAllByRoomIdAndDate(roomId, date);
         }
     }
+     
+    public Booking save(Booking booking) throws Exception {
+        if (isOverlapping(booking)) {
+            throw new Exception("Booking is overlapping with another!");
+        }
+
+        return repo.save(booking);
+    }
+
+    private boolean isOverlapping(Booking booking) {
+        List<Booking> overlappingBookings = repo.findAllOverlapping(
+            booking.getRoom().getId(),
+            booking.getDate(),
+            booking.getStartAt(),
+            booking.getEndAt()
+        );
+
+        return overlappingBookings.size() > 0;
+    }
 }

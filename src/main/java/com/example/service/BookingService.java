@@ -7,4 +7,6 @@ import com.example.model.Booking;
 
 public interface BookingService {
     List<Booking> list(Integer roomId, Date date);
+
+    Booking save(Booking booking) throws Exception;    
 }

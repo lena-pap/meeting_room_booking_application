@@ -1,5 +1,6 @@
 package com.example.repository;
 
+import java.sql.Time;
 import java.sql.Date;
 import java.util.List;
 
@@ -12,5 +13,7 @@ import com.example.model.Booking;
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
   public List<Booking> findAllByRoomIdAndDate(Integer roomId, Date date);
+
+  public List<Booking> findAllOverlapping(Integer roomId, Date date, Time startAt, Time endAt);
   
 }
