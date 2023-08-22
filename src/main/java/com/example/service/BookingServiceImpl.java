@@ -30,6 +30,18 @@ public class BookingServiceImpl implements BookingService {
         return repo.save(booking);
     }
 
+    public Booking find(long id) {
+        return repo.findById(id).get();
+    }
+
+    public void delete(long id) throws Exception {
+        if (find(id).isPast()) {
+            throw new Exception("Cannot cancel a past booking!");
+        }
+
+        repo.deleteById(id);
+    }
+
     private boolean isOverlapping(Booking booking) {
         List<Booking> overlappingBookings = repo.findAllOverlapping(
             booking.getRoom().getId(),

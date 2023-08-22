@@ -9,4 +9,6 @@ public interface BookingService {
     List<Booking> list(Integer roomId, Date date);
 
     Booking save(Booking booking) throws Exception;    
+
+    void delete(long id) throws Exception;
 }

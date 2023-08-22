@@ -39,4 +39,16 @@ public class BookingsController {
 
         return ResponseEntity.ok("The booking for " + booking.getDate() + " at " + booking.getStartAt() + " was completed!");
     }
+
+	@DeleteMapping("{id}")
+    public ResponseEntity<String> deleteBooking(@PathVariable("id") int id) {
+        try {
+            bookingService.delete(id);
+
+            return ResponseEntity.ok("The booking was cancelled.");
+        }
+        catch(Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
