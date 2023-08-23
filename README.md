@@ -56,6 +56,6 @@ Trying to create booking with duration which is not a multiple of an hour:
 
 
 ## What would I do with more time
-- Write integration tests for the entirety of the code.
+- Write feature tests for the entirety of the code.
 - Maybe create a cron job that removes all past bookings.
 - Pagination to the booking result list.
