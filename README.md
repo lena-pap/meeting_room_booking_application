@@ -54,6 +54,8 @@ Trying to create booking with duration which is not a multiple of an hour:
 
 `The booking was cancelled.`
 
+#### Unit tests
+All unit tests have passed.
 
 ## What would I do with more time
 - Write feature tests for the entirety of the code.
