@@ -62,4 +62,3 @@ All unit tests have passed.
 - ^ Better even, write integration/feature tests for the entirety of the code.
 - Maybe create a cron job that removes all past bookings (every e.g. 1 hour or so).
 I cannot think of a scenario where past bookings have any reason to aggaravate the database (historicallity maybe?, but why :P).
-- Add a more descriptive error message when the meeting is overlapping, with the overlapping meetings and hours.
