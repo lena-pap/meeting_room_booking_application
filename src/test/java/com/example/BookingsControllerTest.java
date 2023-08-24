@@ -54,7 +54,8 @@ public class BookingsControllerTest {
         booking2.setDate(Date.valueOf("2023-09-12"));
         booking2.setStartAt(Time.valueOf("10:00:00"));
 
-        when(service.list(isA(Integer.class), isA(Date.class))).thenReturn(List.of(booking1, booking2));
+        when(service.list(isA(Integer.class), isA(Date.class), isA(Integer.class), isA(Integer.class), isA(String.class)))
+            .thenReturn(List.of(booking1, booking2));
 
         mvc.perform(get("/bookings?roomId=2&date=2023-9-02")
             .contentType(MediaType.APPLICATION_JSON))

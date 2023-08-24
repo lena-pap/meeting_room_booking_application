@@ -20,8 +20,14 @@ public class BookingsController {
 	private BookingService bookingService;
 
     @GetMapping
-    public List<Booking> getBookings(@RequestParam Integer roomId, @RequestParam Date date) {
-        return bookingService.list(roomId, date);
+    public ResponseEntity<List<Booking>> getBookings(
+        @RequestParam Integer roomId, @RequestParam Date date, @RequestParam(defaultValue = "0") Integer pageNo,
+        @RequestParam(defaultValue = "10") Integer pageSize, @RequestParam(defaultValue = "startAt") String sortBy
+    ) {
+
+        List<Booking> bookings = bookingService.list(roomId, date, pageNo, pageSize, sortBy);
+
+        return ResponseEntity.ok().body(bookings);
     }
 
 	@PostMapping
