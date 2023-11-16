@@ -53,12 +53,3 @@ Trying to create booking with duration which is not a multiple of an hour:
 `> curl -X DELETE http://localhost:8080/bookings/1`
 
 `The booking was cancelled.`
-
-#### Unit tests
-All unit tests have passed.
-
-## What would I do with more time
-- Write unit tests for the entirety of the code.
-- ^ Better even, write integration/feature tests for the entirety of the code.
-- Maybe create a cron job that removes all past bookings (every e.g. 1 hour or so).
-I cannot think of a scenario where past bookings have any reason to aggaravate the database (historicallity maybe?, but why :P).
